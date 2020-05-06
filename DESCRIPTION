@@ -14,3 +14,5 @@ Imports:
     fs
 Suggests: 
     testthat
+URL: https://github.com/dougtommet/QSPtools
+BugReports: https://github.com/dougtommet/QSPtools/issues
