@@ -1,0 +1,40 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# QSPtools
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of QSPtools is to put the various functions developed by the Quantative Sciences Program into one place.
+
+
+## Installation
+
+You can install the  development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("dougtommet/QSPtools")
+```
+## Example
+
+
+```{r example}
+library(QSPtools)
+my_project <- fs::path(network_path(), "Projects", "My_Project")
+my_project
+# df <- readr::read_csv(fs::path(my_project, "my_data.csv"))
+```
