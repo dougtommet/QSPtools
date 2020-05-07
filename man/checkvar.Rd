@@ -2,7 +2,7 @@
 % Please edit documentation in R/checkvar.R
 \name{checkvar}
 \alias{checkvar}
-\title{Check the values of variables used as inputs into a created variable}
+\title{Check the values of a created variable and its component input variables}
 \usage{
 checkvar(df, created_var, ...)
 }
@@ -18,11 +18,14 @@ a data frame of summary values
 }
 \description{
 This function creates a summary data frame showing each value of a created
-variable, followed by each unique combinations of values of the component
-varables used to create it. The frequency of each combination is reported.
+variable, followed by each unique combination of values of the component
+varables used to create it. Then the frequency of each combination is reported.
 }
 \details{
-The summary table is more useful if the created and component variables are
+The function uses the dplyr functions group_by() and count() to find the
+unique combinations of values and their frequencies. The results is a data
+frame that can then be fed into a table making function (gt, kable, etc). The
+summary table is more useful if the created and component variables are
 discrete and have few levels.
 }
 \examples{
