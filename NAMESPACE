@@ -3,4 +3,6 @@
 export("%>%")
 export(checkvar)
 export(network_path)
+export(sagesII_data)
+export(sages_data)
 importFrom(magrittr,"%>%")

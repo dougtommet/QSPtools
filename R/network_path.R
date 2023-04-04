@@ -17,8 +17,12 @@
 #' @export
 #'
 #' @examples
-#' my_path <- network_path()
-#' my_project <- fs::path(network_path(), "Projects", "My_Project")
+#' \dontrun{
+#'   my_path <- network_path()
+#'   my_project <- fs::path(network_path(), "Projects", "My_Project")
+#' }
+#'
+#'
 #'
 network_path <- function(windows_path = fs::path("R:"), mac_path = fs::path("/Volumes", "Research")) {
   # Need to add a condition for linux users
@@ -39,4 +43,5 @@ network_path <- function(windows_path = fs::path("R:"), mac_path = fs::path("/Vo
   networkpath <- fs::path(network_start, "BM_QuantitativeSciencesPrg")
   networkpath
 }
+
 

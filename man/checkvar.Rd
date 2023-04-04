@@ -29,10 +29,12 @@ summary table is more useful if the created and component variables are
 discrete and have few levels.
 }
 \examples{
+\dontrun{
 df <- tibble::tibble(a = c(rep(1, 10), rep(2, 10)),
                      b = c(rep(1, 5), rep(2, 10), rep(3, 5)))
 df <- df \%>\%
   dplyr::mutate(new_var = a + b)
 df \%>\%
   checkvar(new_var, a, b)
+}
 }

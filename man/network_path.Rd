@@ -28,7 +28,11 @@ This function will create the path object.  To use it, you must either be on
 the Brown network or VPN into it.
 }
 \examples{
-my_path <- network_path()
-my_project <- fs::path(network_path(), "Projects", "My_Project")
+\dontrun{
+  my_path <- network_path()
+  my_project <- fs::path(network_path(), "Projects", "My_Project")
+}
+
+
 
 }
