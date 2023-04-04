@@ -7,17 +7,20 @@
 #' You must be on the Brown network to use this function.
 #'
 #' @param x String Abbreviation of the file to read in.
-#'  '560' = The file identifying the n=560 sample
-#'  'si' = Subject interview
-#'  'hi' = Hospital interview
-#'  'mr' = Medical record
-#'  'cg' = Caregiver interview
+#' \itemize{
+#'   \item '560' = The file identifying the n=560 sample
+#'   \item 'si' = Subject interview
+#'   \item 'hi' = Hospital interview
+#'   \item 'mr' = Medical record
+#'   \item 'cg' = Caregiver interview
+#' }
+#'
 #' @param frozen Logical Should a frozen file be used?
-#' @param frozen_date String "YYYY-MM-DD" If frozen=TRUE, this is the date of the frozen file to use.  If unspecified, it will use
-#' the latest frozen file.  The frozen dates are: "2019-04-23", "2021-05-03". If frozen=FALSE, this is the date of the
-#' current file to use.  If unspecified, it will use the latest current file.  The current dates are: "2022-04-11", "2022-04-20".
+#' @param frozen_date String "YYYY-MM-DD" This is the date of the frozen file to use.  If unspecified, it will use
+#' the latest "current" or "frozen" file.  The frozen file dates are: "2019-04-23", "2021-05-03". The current file
+#' dates are: "2022-04-11", "2022-04-20".
 #'
-#'
+#' @importFrom rlang .data
 #' @return Returns a tibble
 #' @export
 #'
@@ -55,9 +58,9 @@ sages_data <- function(x, frozen=FALSE, frozen_date=NULL) {
       use_frozen_date <- frozen_folder_df %>%
         dplyr::mutate(folder_type = stringr::str_sub(frozen_folder_names, -15, -12),
                       folder_dates = stringr::str_sub(frozen_folder_names, -10, -1)) %>%
-        dplyr::filter(folder_type == "rent") %>%
-        dplyr::summarise(d = max(folder_dates)) %>%
-        dplyr::pull(d)
+        dplyr::filter(.data$folder_type == "rent") %>%
+        dplyr::summarise(d = max(.data$folder_dates)) %>%
+        dplyr::pull(.data$d)
 
     }
     # As more current data files are added, add them to this list
@@ -80,9 +83,9 @@ sages_data <- function(x, frozen=FALSE, frozen_date=NULL) {
       use_frozen_date <- frozen_folder_df %>%
         dplyr::mutate(folder_type = stringr::str_sub(frozen_folder_names, -15, -12),
                       folder_dates = stringr::str_sub(frozen_folder_names, -10, -1)) %>%
-        dplyr::filter(folder_type == "eeze") %>%
-        dplyr::summarise(d = max(folder_dates)) %>%
-        dplyr::pull(d)
+        dplyr::filter(.data$folder_type == "eeze") %>%
+        dplyr::summarise(d = max(.data$folder_dates)) %>%
+        dplyr::pull(.data$d)
 
     }
     # As more data freezes are performed, add them to this list
@@ -117,14 +120,17 @@ sages_data <- function(x, frozen=FALSE, frozen_date=NULL) {
 #' You must be on the Brown network to use this function.
 #'
 #' @param x String Abbreviation of the file to read in.
-#'  'si' = Subject interview
-#'  'hi' = Hospital interview
-#'  'mr' = Medical record
-#'  'cg' = Caregiver interview
+#' \itemize{
+#'  \item 'si' = Subject interview
+#'  \item 'hi' = Hospital interview
+#'  \item 'mr' = Medical record
+#'  \item 'cg' = Caregiver interview
+#'  }
 #' @param frozen Logical Should a frozen file be used?
 #' @param frozen_date String "YYYY-MM-DD" If frozen=TRUE, this is the date of the frozen file to use.  If unspecified, it will use
 #' the latest frozen file.  The frozen dates are: "2022-09-19", "2022-10-05".
 #'
+#' @importFrom rlang .data
 #' @return Returns a tibble
 #' @export
 #'

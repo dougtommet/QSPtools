@@ -8,10 +8,12 @@ sagesII_data(x, frozen = FALSE, frozen_date = NULL)
 }
 \arguments{
 \item{x}{String Abbreviation of the file to read in.
-'si' = Subject interview
-'hi' = Hospital interview
-'mr' = Medical record
-'cg' = Caregiver interview}
+\itemize{
+ \item 'si' = Subject interview
+ \item 'hi' = Hospital interview
+ \item 'mr' = Medical record
+ \item 'cg' = Caregiver interview
+ }}
 
 \item{frozen}{Logical Should a frozen file be used?}
 

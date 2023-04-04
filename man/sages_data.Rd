@@ -8,17 +8,19 @@ sages_data(x, frozen = FALSE, frozen_date = NULL)
 }
 \arguments{
 \item{x}{String Abbreviation of the file to read in.
-'560' = The file identifying the n=560 sample
-'si' = Subject interview
-'hi' = Hospital interview
-'mr' = Medical record
-'cg' = Caregiver interview}
+\itemize{
+  \item '560' = The file identifying the n=560 sample
+  \item 'si' = Subject interview
+  \item 'hi' = Hospital interview
+  \item 'mr' = Medical record
+  \item 'cg' = Caregiver interview
+}}
 
 \item{frozen}{Logical Should a frozen file be used?}
 
-\item{frozen_date}{String "YYYY-MM-DD" If frozen=TRUE, this is the date of the frozen file to use.  If unspecified, it will use
-the latest frozen file.  The frozen dates are: "2019-04-23", "2021-05-03". If frozen=FALSE, this is the date of the
-current file to use.  If unspecified, it will use the latest current file.  The current dates are: "2022-04-11", "2022-04-20".}
+\item{frozen_date}{String "YYYY-MM-DD" This is the date of the frozen file to use.  If unspecified, it will use
+the latest "current" or "frozen" file.  The frozen file dates are: "2019-04-23", "2021-05-03". The current file
+dates are: "2022-04-11", "2022-04-20".}
 }
 \value{
 Returns a tibble
